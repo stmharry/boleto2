@@ -27,13 +27,15 @@ r = sess.post(
     },
 )
 
+'''
 with open('r.html', 'w') as f:
     f.write(r.content)
+'''
 
 soup = bs4.BeautifulSoup(r.content, 'html.parser')
 img = soup.find('img', id='idRandomPic')
 
 r = sess.get(_(img['src'].lstrip('/')))
 
-with open('img.jpg', 'w') as f:
+with open('ver.jpg', 'w') as f:
     f.write(r.content)
